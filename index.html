@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>佳里奇美醫院呼吸治療組班表公告</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">RT</div>
+          <div class="brand-copy">
+            <p>奇美醫療財團法人 佳里奇美醫院</p>
+            <h1>呼吸治療組班表公告</h1>
+          </div>
+        </div>
+        <div class="status-pill" id="siteStatus">讀取中</div>
+      </header>
+
+      <main>
+        <section class="control-panel" aria-label="班表查詢">
+          <div>
+            <p class="section-label">確定／正式班表</p>
+            <h2 id="monthTitle">尚未公告正式班表</h2>
+            <p id="publishMeta" class="meta-text">公告後會在此顯示最新班表。</p>
+          </div>
+          <div class="controls">
+            <label>
+              <span>月份</span>
+              <select id="monthSelect"></select>
+            </label>
+            <label>
+              <span>姓名</span>
+              <input id="personSearch" type="search" placeholder="搜尋同仁" autocomplete="off" />
+            </label>
+            <button id="todayButton" type="button" class="icon-button" aria-label="回到今日" title="回到今日">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 2v3M17 2v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
+              </svg>
+            </button>
+            <button id="printButton" type="button" class="icon-button" aria-label="列印" title="列印">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7v-7Z" />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="summary-grid" aria-label="公告摘要">
+          <article>
+            <span>公告月份</span>
+            <strong id="summaryMonth">-</strong>
+          </article>
+          <article>
+            <span>人員</span>
+            <strong id="summaryStaff">-</strong>
+          </article>
+          <article>
+            <span>天數</span>
+            <strong id="summaryDays">-</strong>
+          </article>
+          <article>
+            <span>公告時間</span>
+            <strong id="summaryPublished">-</strong>
+          </article>
+        </section>
+
+        <nav class="tabs" aria-label="班表檢視">
+          <button type="button" class="tab is-active" data-tab="schedule">月曆總表</button>
+          <button type="button" class="tab" data-tab="person">個人查詢</button>
+          <button type="button" class="tab" data-tab="coverage">每日人力</button>
+        </nav>
+
+        <section id="emptyPanel" class="empty-panel">
+          <h2>目前尚未公告正式班表</h2>
+          <p>主管完成審視簽核並公告後，人員網頁會自動更新。</p>
+        </section>
+
+        <section id="schedulePanel" class="panel is-active" aria-label="月曆總表">
+          <div id="legend" class="legend"></div>
+          <div class="table-shell">
+            <table id="scheduleTable" class="schedule-table"></table>
+          </div>
+        </section>
+
+        <section id="personPanel" class="panel" aria-label="個人查詢">
+          <div id="personCards" class="person-grid"></div>
+        </section>
+
+        <section id="coveragePanel" class="panel" aria-label="每日人力">
+          <div id="coverageGrid" class="coverage-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="schedule-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
