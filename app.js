@@ -36,8 +36,8 @@
     ["E", "小夜", "shift-evening"],
     ["N", "大夜", "shift-night"],
     ["of", "休假", "shift-off"],
-    ["vo", "特休", "shift-vo"],
-    ["公假", "公假", "shift-off"],
+    ["vo", "特休(計時)", "shift-vo"],
+    ["公假", "公假(計時)", "shift-vo"],
   ];
 
   function html(value) {
@@ -81,8 +81,8 @@
     if (shift === "D") return "shift-day";
     if (shift === "E") return "shift-evening";
     if (shift === "N") return "shift-night";
-    if (lower.startsWith("vo") || shift.includes("特休")) return "shift-vo";
-    if (["of", "off", "of.", "休", "休假", "公假"].includes(lower) || ["OF", "OFF"].includes(shift)) return "shift-off";
+    if (lower.startsWith("vo") || shift.includes("特休") || shift.includes("公假")) return "shift-vo";
+    if (["of", "off", "of.", "休", "休假"].includes(lower) || ["OF", "OFF"].includes(shift)) return "shift-off";
     return shift ? "shift-other" : "shift-empty";
   }
 
